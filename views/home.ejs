@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav'); %>
+    <div class="pt-3 px-2 row">
+        <h3>Recent Transcations</h3>
+        <% for (expenseItem of expenseItems) { %>
+        <div class="card mb-2 mx-3 col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0">
+            <h5 class="card-header bg-dark text-light"><b><%= expenseItem.name %></b></h5>
+            <div class="card-body">
+              <% let date = expenseItem.date.toLocaleDateString('en-GB', {
+                day: 'numeric', month: 'short', year: 'numeric'
+              }).replace(/ /g, '-'); %>
+              <p class="card-text mb-1"><i>Category: <%= expenseItem.category %></i></p>
+              <h5 class="card-title text-muted">Rs.<%= expenseItem.price %></h5>
+              <p class="card-text">Purchased on <%= date %> from <%= expenseItem.shop %></p>
+              <a href="/item/<%= expenseItem._id %>" class="btn btn-primary">See details</a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

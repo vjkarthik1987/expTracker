@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav'); %>
+    <div class="pt-3 px-2 row">
+        <form action="/item/<%= expenseItem._id %>/edit?_method=PATCH" method="POST" class="col-lg-9 mx-auto">
+            <input type="text" id="name" name="name" value="<%= expenseItem.name %>" required class="form-control">
+            <input type="text" id="price" name="price" value="<%= expenseItem.price %>" required class="form-control">
+            <input type="date" id="date" name="date" value="<%= expenseItem.date %>" required class="form-control">
+            <select id="category" name="category" class="form-control">
+                <% for (let category of categories) { %>
+                    <% let result = (expenseItem.category === category) ? 'selected' : '' %>
+                    <option value="<%= category %>" <%= result %>><%= category %></option>
+                <% } %>
+            </select>
+            <select id="mode" name="mode" class="form-control">
+                <% for (let mode of modes) { %>
+                    <% let result = (expenseItem.mode === mode) ? 'selected' : '' %>
+                    <option value="<%= mode %>" <%= result %>><%= mode %></option>
+                <% } %>
+            </select>
+            <input type="text" id="shop" name="shop" value="<%= expenseItem.shop %>" class="form-control">
+            <input type="file" id="bill" name="bill" class="form-control">
+            <textarea placeholder="Enter details" name="details" id="details" value="<%= expenseItem.details %>" class="form-control"></textarea>
+            <button type="submit" class="btn btn-info mb-2">Edit Expense</button>
+        </form>
+    </div>
+</body>
+</html>

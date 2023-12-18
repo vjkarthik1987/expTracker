@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav'); %>
+    <div class="pt-3 px-2 row">
+        <form action="/item" method="post">
+            <input type="text" id="name" name="name" placeholder="Enter item name" required class="form-control">
+            <input type="number" id="price" name="price" placeholder="Enter item price" step="0.01" class="form-control">
+            <input type="date" id="date" name="date" required class="form-control">
+            <select id="category" name="category" class="form-control">
+                <% for (let category of categories) { %>
+                    <option value="<%= category %>"><%= category %></option>
+                <% } %>
+            </select>
+            <select id="mode" name="mode" class="form-control">
+                <% for (let mode of modes) { %>
+                    <option value="<%= mode %>"><%= mode %></option>
+                <% } %>
+            </select>
+            <input type="text" id="shop" name="shop" placeholder="Enter shop name" class="form-control">
+            <input type="file" id="bill" name="bill" class="form-control">
+            <textarea placeholder="Enter details" name="details" id="details" class="form-control"></textarea>
+            <button type="submit" class="d-block btn btn-primary">Add Expense</button>
+        </form>
+        <a href="/" class="d-block">Go  Home</a>
+    </div>
+</body>
+</html>

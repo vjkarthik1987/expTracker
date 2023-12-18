@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); %>
+<body>
+    <%- include('layouts/nav'); %>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Detail</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td><%= expenseItem._id %></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><%= expenseItem.name %></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><%= expenseItem.price %></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <% let date = expenseItem.date.toLocaleDateString('en-IN') %>
+            <td><%= date %></td>
+        </tr>
+    </table>
+    <a href="/item/<%= expenseItem._id %>/edit">Edit Item</a>
+    <form action="/item/<%= expenseItem._id %>/delete?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+</body>
+</body>
+</html>

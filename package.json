@@ -1,0 +1,18 @@
+{
+  "name": "exptracker",
+  "version": "1.0.0",
+  "description": "An app to track expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Karthik VJ",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.3"
+  }
+}
